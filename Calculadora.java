@@ -37,27 +37,9 @@ public class Calculadora {
         return operando1 * operando2;
     }
 
-    public double dividir() {
-        if (operando2 != 0) {
-            return operando1 / operando2;
-        } else {
-            System.out.println("Error: División por cero no permitida.");
-            return Double.NaN;
-        }
-    }
 
-    public double raizCuadrada() {
-        if (operando1 >= 0) {
-            return Math.sqrt(operando1);
-        } else {
-            System.out.println("Error: No se puede calcular la raíz cuadrada de un número negativo.");
-            return Double.NaN;
-        }
-    }
+    
 
-    public double potencia() {
-        return Math.pow(operando1, operando2);
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -69,31 +51,16 @@ public class Calculadora {
             System.out.println("1. Sumar");
             System.out.println("2. Restar");
             System.out.println("3. Multiplicar");
-            System.out.println("4. Dividir");
-            System.out.println("5. Raíz Cuadrada");
-            System.out.println("6. Potencia");
-            System.out.println("7. Salir");
+            System.out.println("5. Salir");
             System.out.print("Elige una opción: ");
 
             int opcion = scanner.nextInt();
 
             if (opcion >= 1 && opcion <= 6) {
                 if (opcion == 5) {
-                    System.out.print("Introduce el operando: ");
-                    calculadora.setOperando1(scanner.nextDouble());
-                    double resultado = calculadora.raizCuadrada();
-                    if (!Double.isNaN(resultado)) {
-                        System.out.println("Resultado: " + resultado);
-                    }
-                } else if (opcion == 6) {
-                    System.out.print("Base: ");
-                    calculadora.setOperando1(scanner.nextDouble());
-
-                    System.out.print("Exponente: ");
-                    calculadora.setOperando2(scanner.nextDouble());
-
-                    double resultado = calculadora.potencia();
-                    System.out.println("Resultado: " + resultado);
+                    salir = true;
+                System.out.println("Saliendo de la calculadora.");
+                } 
                 } else {
                     System.out.print("Primer operando: ");
                     calculadora.setOperando1(scanner.nextDouble());
@@ -115,22 +82,13 @@ public class Calculadora {
                             resultado = calculadora.multiplicar();
                             System.out.println("Resultado: " + resultado);
                             break;
-                        case 4:
-                            resultado = calculadora.dividir();
-                            if (!Double.isNaN(resultado)) {
-                                System.out.println("Resultado: " + resultado);
-                            }
-                            break;
                     }
                 }
-            } else if (opcion == 7) {
-                salir = true;
-                System.out.println("Saliendo de la calculadora.");
+                
             } else {
                 System.out.println("Opción no válida. Inténtalo de nuevo.");
             }
         }
 
-        scanner.close();
     }
 }
