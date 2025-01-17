@@ -37,10 +37,6 @@ public class Calculadora {
         return operando1 * operando2;
     }
 
-
-    
-
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Calculadora calculadora = new Calculadora();
@@ -49,15 +45,14 @@ public class Calculadora {
         while (!salir) {
             System.out.println("\n--- Calculadora ---");
             System.out.println("1. Sumar");
-            System.out.println("2. Restar");
-            System.out.println("3. Multiplicar");
-            System.out.println("5. Salir");
+            System.out.println("2. Multiplicar");
+            System.out.println("3. Salir");
             System.out.print("Elige una opción: ");
 
             int opcion = scanner.nextInt();
 
-            if (opcion >= 1 && opcion <= 6) {
-                if (opcion == 5) {
+            if (opcion >= 1 && opcion <= 3) {
+                if (opcion == 3) {
                     salir = true;
                 System.out.println("Saliendo de la calculadora.");
                 } 
@@ -89,6 +84,4 @@ public class Calculadora {
                 System.out.println("Opción no válida. Inténtalo de nuevo.");
             }
         }
-
     }
-}
